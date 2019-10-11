@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author xl48886
  * @version Id : A0004ReverseIntegerTest, v 0.1 2019/10/12 上午12:21 xl48886 Exp $
  */
-public class A0004ReverseIntegerTest {
+public class A0007ReverseIntegerTest {
 
     @Test
     public void divideTest() {

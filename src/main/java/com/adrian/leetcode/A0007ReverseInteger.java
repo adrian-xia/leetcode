@@ -22,10 +22,10 @@ package com.adrian.leetcode;
  * @author xl48886
  * @version Id : A0004ReverseInteger, v 0.1 2019/10/12 上午12:11 xl48886 Exp $
  */
-public class A0004ReverseInteger {
+public class A0007ReverseInteger {
 
     public static void main(String[] args) {
-        A0004ReverseInteger test = new A0004ReverseInteger();
+        A0007ReverseInteger test = new A0007ReverseInteger();
         System.out.println(test.reverse(Integer.MAX_VALUE));
     }
 
