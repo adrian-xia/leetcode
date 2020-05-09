@@ -21,7 +21,7 @@ public class A0070ClimbStairs {
      * @return
      */
     private static int climbStairs1(int n) {
-        if (n == 1 || n == 2) {
+        if (n <= 2) {
             return n;
         }
         return climbStairs1(n - 1) + climbStairs1(n - 2);
