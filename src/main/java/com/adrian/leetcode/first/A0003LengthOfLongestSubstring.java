@@ -1,4 +1,4 @@
-package com.adrian.leetcode;
+package com.adrian.leetcode.first;
 
 import java.util.HashMap;
 import java.util.Map;

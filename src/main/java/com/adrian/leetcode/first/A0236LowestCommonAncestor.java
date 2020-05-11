@@ -1,4 +1,4 @@
-package com.adrian.leetcode;
+package com.adrian.leetcode.first;
 
 /**
  * 二叉树的最近公共祖先

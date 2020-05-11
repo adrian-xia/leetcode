@@ -1,4 +1,4 @@
-package com.adrian.leetcode;
+package com.adrian.leetcode.first;
 
 /**
  * 1. 对向移动
