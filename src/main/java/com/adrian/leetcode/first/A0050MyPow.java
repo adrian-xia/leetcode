@@ -7,7 +7,7 @@ package com.adrian.leetcode.first;
 public class A0050MyPow {
 
     public static void main(String[] args) {
-        myPow(2, -2);
+        System.out.println(myPow(4, -2));
     }
 
     public static double myPow(double x, int n) {
