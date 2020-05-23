@@ -10,6 +10,7 @@ public class A0050MyPow {
         System.out.println(myPow(4, -2));
     }
 
+
     public static double myPow(double x, int n) {
         if (n == 0) return 1;
         if (n == 1) return x;
@@ -18,5 +19,14 @@ public class A0050MyPow {
         double rest = myPow(x, n % 2);
         return rest * half * half;
     }
+
+    // TODO: 2020/5/15
+    public static double myPow2(double x, int n) {
+
+
+
+        return 0;
+    }
+
 
 }
