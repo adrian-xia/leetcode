@@ -1,5 +1,6 @@
 package com.adrian.leetcode.myalgo;
 
+import javax.xml.transform.Source;
 import java.util.Arrays;
 
 /**
@@ -10,13 +11,12 @@ public class SortTest {
 
     public static void main(String[] args) {
         int[] nums = new int[]{6, 3, 2, 5, 7, 9, 1};
-        insertSort(nums);
+        mergeSort(nums);
         System.out.println(Arrays.toString(nums));
     }
 
 
-    private static void selectSort(int[] nums) {
-
+    public static void selectSort(int[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < nums.length; j++)
@@ -29,7 +29,7 @@ public class SortTest {
         }
     }
 
-    private static void bubbleSort(int[] nums) {
+    public static void bubbleSort(int[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
             //提前退出标志位
             boolean flag = false;
@@ -47,8 +47,8 @@ public class SortTest {
         }
     }
 
-    private static void insertSort(int[] nums) {
-        for (int i = 1; i < nums.length;  i++) {
+    public static void insertSort(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
             int value = nums[i];
             int j = i - 1;
             for (; j >= 0; j--) {
@@ -58,5 +58,47 @@ public class SortTest {
             nums[j + 1] = value;
         }
     }
+
+
+    /**
+     * 归并排序
+     *
+     * @param nums
+     */
+    public static void mergeSort(int[] nums) {
+        aux = new int[nums.length];
+        mergeSort(nums, 0, nums.length - 1);
+    }
+
+    private static int[] aux;
+
+    private static void mergeSort(int[] nums, int l, int r) {
+        if (l >= r) return;//若左侧索引>=右侧索引，说明到底了
+        int mid = l + (r - l) / 2;
+        mergeSort(nums, l, mid);
+        mergeSort(nums, mid + 1, r);
+        merge(nums, l, mid, r);
+    }
+
+    /**
+     * 原地归并
+     * @param nums
+     * @param lo
+     * @param mid
+     * @param hi
+     */
+    private static void merge(int[] nums, int lo, int mid, int hi) {
+        int i = lo, j = mid + 1;
+        for (int k = lo; k <= hi ; k++) {
+            aux[k] = nums[k];
+        }
+        for (int k = lo; k <= hi ; k++) {
+            if (i > mid) nums[k] = aux[j++];
+            else if (j > hi) nums[k] = aux[i++];
+            else if (aux[j] < aux[i]) nums[k] = aux[j++];
+            else nums[k] = aux[i++];
+        }
+    }
+
 
 }
