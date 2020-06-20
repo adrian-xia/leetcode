@@ -1,6 +1,5 @@
 package com.adrian.leetcode.myalgo;
 
-import javax.xml.transform.Source;
 import java.util.Arrays;
 
 /**
@@ -11,7 +10,7 @@ public class SortTest {
 
     public static void main(String[] args) {
         int[] nums = new int[]{6, 3, 2, 5, 7, 9, 1};
-        mergeSort(nums);
+        quickSort(nums);
         System.out.println(Arrays.toString(nums));
     }
 
@@ -49,7 +48,7 @@ public class SortTest {
 
     public static void insertSort(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
-            int value = nums[i];
+            int value = nums[i];//哨兵
             int j = i - 1;
             for (; j >= 0; j--) {
                 if (nums[j] <= value) break;
@@ -82,6 +81,7 @@ public class SortTest {
 
     /**
      * 原地归并
+     *
      * @param nums
      * @param lo
      * @param mid
@@ -89,16 +89,59 @@ public class SortTest {
      */
     private static void merge(int[] nums, int lo, int mid, int hi) {
         int i = lo, j = mid + 1;
-        for (int k = lo; k <= hi ; k++) {
+        for (int k = lo; k <= hi; k++) {
             aux[k] = nums[k];
         }
-        for (int k = lo; k <= hi ; k++) {
+        for (int k = lo; k <= hi; k++) {
             if (i > mid) nums[k] = aux[j++];
             else if (j > hi) nums[k] = aux[i++];
             else if (aux[j] < aux[i]) nums[k] = aux[j++];
             else nums[k] = aux[i++];
         }
     }
+
+    private static void mergeSortUseFor(int[] nums) {
+        int n = nums.length;
+        aux = new int[n];
+        for (int sz = 1; sz < n; sz = sz + sz) {
+            for (int lo = 0; lo < n - sz; lo += sz + sz) {
+                merge(nums, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, n - 1));
+            }
+        }
+
+    }
+
+
+    public static void quickSort(int[] nums) {
+        _quickSort(nums, 0, nums.length - 1);
+    }
+
+    private static void _quickSort(int[] nums, int l, int r) {
+        if (l > r) return;
+        int p = _partition(nums, l, r);
+        _quickSort(nums, l, p - 1);
+        _quickSort(nums, p + 1, r);
+    }
+
+    private static int _partition(int[] nums, int l, int r) {
+        int pivot = nums[l];
+        int low = l;
+        int high = r;
+
+        while(low < high) {
+            while (nums[high] >= pivot && low < high) {
+                high--;
+            }
+            nums[low] = nums[high];
+            while (nums[low]<= pivot && low < high) {
+                low++;
+            }
+            nums[high] = nums[low];
+        }
+        nums[low] = pivot;
+        return low;
+    }
+
 
 
 }

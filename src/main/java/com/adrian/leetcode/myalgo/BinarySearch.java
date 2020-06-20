@@ -1,8 +1,11 @@
 package com.adrian.leetcode.myalgo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import sun.print.SunMinMaxPage;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * 二分查找
@@ -106,6 +109,8 @@ public class BinarySearch {
             else if (nums[mid] == k && (mid == nums.length - 1 || nums[mid + 1] > k)) return mid;
             else l = mid + 1;
         }
+
+        new HashSet(JSON.parseArray(""));
         return -1;
     }
 

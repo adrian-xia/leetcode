@@ -2,8 +2,6 @@ package com.adrian.leetcode.myjvm;
 
 import org.junit.Test;
 
-import java.util.concurrent.CountDownLatch;
-
 /**
  * @author xl48886
  * @version Id: VolatileTest, v 0.1 2020/5/22 10:07 下午 xl48886 Exp $
